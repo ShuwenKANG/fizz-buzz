@@ -10,6 +10,14 @@ public class FizzBuzz {
       return "FizzBuzz";
     }
 
+    if(isBuzzWhizz(i)) {
+      return "BuzzWhizz";
+    }
+
+    if(isFizzWhizz(i)) {
+      return "FizzWhizz";
+    }
+
     if(isFizz(i)) {
       return "Fizz";
     }
@@ -21,6 +29,14 @@ public class FizzBuzz {
       return "Whizz";
     }
     return String.valueOf(i);
+  }
+
+  private boolean isFizzWhizz(int i) {
+    return isMultiplesOf3(i) && isMultiplesOf7(i);
+  }
+
+  private boolean isBuzzWhizz(int i) {
+    return isMultiplesOf5(i) && isMultiplesOf7(i);
   }
 
   private boolean isWhizz(int i) {
