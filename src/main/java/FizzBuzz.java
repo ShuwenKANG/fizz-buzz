@@ -2,6 +2,10 @@ public class FizzBuzz {
 
   public String call(int i) {
 
+    if(isStrickFizz(i)) {
+      return "Fizz";
+    }
+
     if(isFizzBuzzWhizz(i)) {
       return "FizzBuzzWhizz";
     }
@@ -31,6 +35,10 @@ public class FizzBuzz {
     return String.valueOf(i);
   }
 
+  private boolean isStrickFizz(int i) {
+    return has3(i);
+  }
+
   private boolean isFizzWhizz(int i) {
     return isMultiplesOf3(i) && isMultiplesOf7(i);
   }
@@ -48,7 +56,7 @@ public class FizzBuzz {
   }
 
   private boolean isFizz(int i) {
-    return isMultiplesOf3(i) || has3(i);
+    return isMultiplesOf3(i);
   }
 
   private boolean has3(int i) {
