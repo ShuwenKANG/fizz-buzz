@@ -1,7 +1,12 @@
 public class FizzBuzz {
 
   public String call(int i) {
-
-    return i%3 == 0 ? "Fizz" : String.valueOf(i);
+    if(i%3 == 0) {
+      return "Fizz";
+    }
+    if(i%5 == 0) {
+      return "Buzz";
+    }
+    return String.valueOf(i);
   }
 }

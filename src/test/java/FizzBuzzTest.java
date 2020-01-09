@@ -24,4 +24,10 @@ public class FizzBuzzTest {
   public void should_return_Fizz_given_6() {
     assertEquals("Fizz", fizzBuzz.call(6));
   }
+
+  @Test
+  public void should_return_Buzzz_given_5_and_10() {
+    assertEquals("Buzz", fizzBuzz.call(5));
+    assertEquals("Buzz", fizzBuzz.call(10));
+  }
 }
