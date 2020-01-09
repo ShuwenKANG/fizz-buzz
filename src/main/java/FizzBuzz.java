@@ -48,7 +48,11 @@ public class FizzBuzz {
   }
 
   private boolean isFizz(int i) {
-    return isMultiplesOf3(i);
+    return isMultiplesOf3(i) || has3(i);
+  }
+
+  private boolean has3(int i) {
+    return String.valueOf(i).contains("3");
   }
 
   private boolean isFizzBuzz(int i) {
