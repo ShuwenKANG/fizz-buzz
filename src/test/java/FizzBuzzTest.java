@@ -36,4 +36,11 @@ public class FizzBuzzTest {
     assertEquals("Whizz", fizzBuzz.call(7));
     assertEquals("Whizz", fizzBuzz.call(14));
   }
+
+  @Test
+  public void should_return_FizzBuzz_given_15_30_45() {
+    assertEquals("FizzBuzz", fizzBuzz.call(15));
+    assertEquals("FizzBuzz", fizzBuzz.call(30));
+    assertEquals("FizzBuzz", fizzBuzz.call(45));
+  }
 }
