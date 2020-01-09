@@ -1,6 +1,7 @@
 public class FizzBuzz {
 
-  public int call(int i) {
-    return i;
+  public String call(int i) {
+
+    return i == 3 ? "Fizz" : String.valueOf(i);
   }
 }

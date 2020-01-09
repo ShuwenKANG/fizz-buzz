@@ -7,12 +7,12 @@ public class FizzBuzzTest {
 
   @Test
   public void should_return_1_given_1() {
-    assertEquals(1, fizzBuzz.call(1));
+    assertEquals("1", fizzBuzz.call(1));
   }
 
   @Test
   public void should_return_2_given_2() {
-    assertEquals(2, fizzBuzz.call(2));
+    assertEquals("2", fizzBuzz.call(2));
   }
 
   @Test
