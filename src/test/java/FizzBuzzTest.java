@@ -50,9 +50,9 @@ public class FizzBuzzTest {
   }
 
   @Test
-  public void should_return_BuzzWhizz_given_70_and_FizzWhizz_given_21() {
+  public void should_return_BuzzWhizz_given_140_and_FizzWhizz_given_21() {
 
-    assertEquals("BuzzWhizz", fizzBuzz.call(70));
+    assertEquals("BuzzWhizz", fizzBuzz.call(140));
     assertEquals("FizzWhizz", fizzBuzz.call(21));
   }
 
@@ -75,5 +75,11 @@ public class FizzBuzzTest {
   public void should_return_BuzzWhizz_given_35() {
 
     assertEquals("BuzzWhizz", fizzBuzz.call(35));
+  }
+
+  @Test
+  public void should_return_Fizz_given_75() {
+
+    assertEquals("Fizz", fizzBuzz.call(75));
   }
 }

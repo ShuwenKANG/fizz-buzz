@@ -6,16 +6,27 @@ public class FizzBuzz {
   public String call(int i) {
     List<String> strategyList = new ArrayList<>();
 
-    if(has5(i)) {
+    if(hasX(i, 7)) {
+      strategyList.add("has3");
+      strategyList.add("isFizzWhizz");
+      strategyList.add("isFizz");
+      strategyList.add("isWhizz");
+
+      return this.applyStrategies(i, strategyList);
+    }
+
+    if(hasX(i, 5)) {
       strategyList.add("isBuzzWhizz");
       strategyList.add("isBuzz");
       strategyList.add("isWhizz");
-      strategyList.add("isValue");
 
-      return this.call(i, strategyList);
+      return this.applyStrategies(i, strategyList);
     }
 
-    strategyList.add("isStrictFizz");
+    if(hasX(i, 3)) {
+      return "Fizz";
+    }
+
     strategyList.add("isFizzBuzzWhizz");
     strategyList.add("isFizzBuzz");
     strategyList.add("isBuzzWhizz");
@@ -23,16 +34,15 @@ public class FizzBuzz {
     strategyList.add("isFizz");
     strategyList.add("isBuzz");
     strategyList.add("isWhizz");
-    strategyList.add("isValue");
 
-    return this.call(i, strategyList);
+    return this.applyStrategies(i, strategyList);
   }
 
-  public String call(int i, List<String> strategyList) {
+  private String applyStrategies(int i, List<String> strategyList) {
     for(String strategy: strategyList) {
       switch (strategy) {
-        case "isStrictFizz":
-          if(isStrictFizz(i)) {
+        case "has3":
+          if(hasX(i, 3)) {
             return "Fizz";
           }
           break;
@@ -71,69 +81,46 @@ public class FizzBuzz {
             return "Whizz";
           }
           break;
-        case "isValue":
-          if(isValue(i)) {
-            return String.valueOf(i);
-          }
-          break;
+        default:
+          throw new IllegalStateException("Unexpected value: " + strategy);
       }
     }
-    return null;
+    return String.valueOf(i);
   }
 
-  private boolean isValue(int i) {
-    return true;
-  }
-
-  private boolean has5(int i) {
-    return String.valueOf(i).contains("5");
-  }
-
-  private boolean isStrictFizz(int i) {
-    return has3(i);
+  private boolean hasX(int i, int x) {
+    return String.valueOf(i).contains(String.valueOf(x));
   }
 
   private boolean isFizzWhizz(int i) {
-    return isMultiplesOf3(i) && isMultiplesOf7(i);
+    return isFizz(i) && isWhizz(i);
   }
 
   private boolean isBuzzWhizz(int i) {
-    return isMultiplesOf5(i) && isMultiplesOf7(i);
-  }
-
-  private boolean isWhizz(int i) {
-    return isMultiplesOf7(i);
-  }
-
-  private boolean isBuzz(int i) {
-    return isMultiplesOf5(i);
-  }
-
-  private boolean isFizz(int i) {
-    return isMultiplesOf3(i);
-  }
-
-  private boolean has3(int i) {
-    return String.valueOf(i).contains("3");
+    return isBuzz(i) && isWhizz(i);
   }
 
   private boolean isFizzBuzz(int i) {
-    return isMultiplesOf3(i) && isMultiplesOf5(i);
+    return isFizz(i) && isBuzz(i);
   }
 
   private boolean isFizzBuzzWhizz(int i) {
-    return isMultiplesOf3(i) && isMultiplesOf5(i) && isMultiplesOf7(i);
+    return isFizz(i) && isBuzz(i) && isWhizz(i);
   }
 
-  private boolean isMultiplesOf7(int i) {
-    return i%7 == 0;
+  private boolean isWhizz(int i) {
+    return isMultiplesOfX(i, 7);
   }
 
-  private boolean isMultiplesOf5(int i) {
-    return i%5 == 0;
+  private boolean isBuzz(int i) {
+    return isMultiplesOfX(i, 5);
   }
 
-  private boolean isMultiplesOf3(int i) {
-    return i%3 == 0;
+  private boolean isFizz(int i) {
+    return isMultiplesOfX(i, 3);
+  }
+
+  private boolean isMultiplesOfX(int i, int x) {
+    return i%x == 0;
   }
 }
