@@ -1,41 +1,95 @@
+import java.util.ArrayList;
+import java.util.List;
+
 public class FizzBuzz {
 
   public String call(int i) {
+    List<String> strategyList = new ArrayList<>();
 
-    if(isStrickFizz(i)) {
-      return "Fizz";
-    }
+    if(has5(i)) {
+      strategyList.add("isBuzzWhizz");
+      strategyList.add("isBuzz");
+      strategyList.add("isWhizz");
+      strategyList.add("isValue");
 
-    if(isFizzBuzzWhizz(i)) {
-      return "FizzBuzzWhizz";
-    }
-
-    if(isFizzBuzz(i)) {
-      return "FizzBuzz";
+      return this.call(i, strategyList);
     }
 
-    if(isBuzzWhizz(i)) {
-      return "BuzzWhizz";
-    }
+    strategyList.add("isStrictFizz");
+    strategyList.add("isFizzBuzzWhizz");
+    strategyList.add("isFizzBuzz");
+    strategyList.add("isBuzzWhizz");
+    strategyList.add("isFizzWhizz");
+    strategyList.add("isFizz");
+    strategyList.add("isBuzz");
+    strategyList.add("isWhizz");
+    strategyList.add("isValue");
 
-    if(isFizzWhizz(i)) {
-      return "FizzWhizz";
-    }
-
-    if(isFizz(i)) {
-      return "Fizz";
-    }
-
-    if(isBuzz(i)) {
-      return "Buzz";
-    }
-    if(isWhizz(i)) {
-      return "Whizz";
-    }
-    return String.valueOf(i);
+    return this.call(i, strategyList);
   }
 
-  private boolean isStrickFizz(int i) {
+  public String call(int i, List<String> strategyList) {
+    for(String strategy: strategyList) {
+      switch (strategy) {
+        case "isStrictFizz":
+          if(isStrictFizz(i)) {
+            return "Fizz";
+          }
+          break;
+        case "isFizzBuzzWhizz":
+          if(isFizzBuzzWhizz(i)) {
+            return "FizzBuzzWhizz";
+          }
+          break;
+        case "isFizzBuzz":
+          if(isFizzBuzz(i)) {
+            return "FizzBuzz";
+          }
+          break;
+        case "isFizzWhizz":
+          if(isFizzWhizz(i)) {
+            return "FizzWhizz";
+          }
+          break;
+        case "isBuzzWhizz":
+          if(isBuzzWhizz(i)) {
+            return "BuzzWhizz";
+          }
+          break;
+        case "isFizz":
+          if(isFizz(i)) {
+            return "Fizz";
+          }
+          break;
+        case "isBuzz":
+          if(isBuzz(i)) {
+            return "Buzz";
+          }
+          break;
+        case "isWhizz":
+          if(isWhizz(i)) {
+            return "Whizz";
+          }
+          break;
+        case "isValue":
+          if(isValue(i)) {
+            return String.valueOf(i);
+          }
+          break;
+      }
+    }
+    return null;
+  }
+
+  private boolean isValue(int i) {
+    return true;
+  }
+
+  private boolean has5(int i) {
+    return String.valueOf(i).contains("5");
+  }
+
+  private boolean isStrictFizz(int i) {
     return has3(i);
   }
 
