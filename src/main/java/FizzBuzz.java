@@ -3,7 +3,7 @@ import java.util.List;
 
 public class FizzBuzz {
 
-  public String call(int i) {
+  public String fizzBuzz(int i) {
     List<String> strategyList = new ArrayList<>();
 
     if(hasX(i, 7)) {
