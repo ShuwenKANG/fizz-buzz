@@ -1,39 +1,28 @@
-import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class FizzBuzz {
 
   public String fizzBuzz(int i) {
-    List<String> strategyList = new ArrayList<>();
+    List<String> strategyList = Arrays.asList("isFizzBuzzWhizz", "isFizzBuzz", "isBuzzWhizz", "isFizzWhizz", "isFizz",
+                                              "isBuzz", "isWhizz");
 
     if(hasX(i, 7)) {
-      strategyList.add("has3");
-      strategyList.add("isFizzWhizz");
-      strategyList.add("isFizz");
-      strategyList.add("isWhizz");
+      strategyList = Arrays.asList("has3", "isFizzWhizz", "isFizz", "isWhizz");
 
       return this.applyStrategies(i, strategyList);
     }
 
     if(hasX(i, 5)) {
-      strategyList.add("isBuzzWhizz");
-      strategyList.add("isBuzz");
-      strategyList.add("isWhizz");
+      strategyList = Arrays.asList("isBuzzWhizz", "isBuzz", "isWhizz");
 
       return this.applyStrategies(i, strategyList);
     }
 
     if(hasX(i, 3)) {
+
       return "Fizz";
     }
-
-    strategyList.add("isFizzBuzzWhizz");
-    strategyList.add("isFizzBuzz");
-    strategyList.add("isBuzzWhizz");
-    strategyList.add("isFizzWhizz");
-    strategyList.add("isFizz");
-    strategyList.add("isBuzz");
-    strategyList.add("isWhizz");
 
     return this.applyStrategies(i, strategyList);
   }
