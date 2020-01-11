@@ -27,6 +27,13 @@ public class FizzBuzz {
     return this.applyStrategies(i, strategyList);
   }
 
+  public static void main(String[] args){
+    FizzBuzz fizzBuzz = new FizzBuzz();
+    for(int i=0; i<120; i++) {
+      System.out.println(fizzBuzz.fizzBuzz(i));
+    }
+  }
+
   private String applyStrategies(int i, List<String> strategyList) {
     for(String strategy: strategyList) {
       switch (strategy) {
